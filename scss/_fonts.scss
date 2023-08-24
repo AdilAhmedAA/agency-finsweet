@@ -1,0 +1,103 @@
+@use 'sass:math';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+
+$font-type: 'Poppins', sans-serif;
+
+$theme-color:#F58A07;
+$light-theme-color:rgba(245, 138, 7, 0.10);
+$font-color: #5B5B5B;
+$theme-secondry-color:#063255;
+
+$padding-btn: 14px 33px;
+$btn-radius: 27px;
+
+@mixin xbold($weight: 600){
+    font-weight: $weight;
+    font-style: normal;
+}
+@mixin bold(){
+    font-weight: 500;
+    font-style: normal;
+}
+@mixin light(){
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin mediumbtn(){
+    padding: 10px 10px;
+    max-width: 180px;
+    width: 100%;
+}
+@mixin smallbtn(){
+    padding: 8px 10px;
+    max-width: 160px;
+}
+@mixin def-font(){
+    font-size: 18px;
+    line-height: 24px;
+}
+
+@mixin margin-l-r($mleft: 0, $mright: 0){
+    @if type-of($mleft) == 'string' {
+    margin-left: $mleft;
+    } 
+    @else if type-of($mleft) == 'number' {
+        margin-left: $mleft * 1px;
+    } 
+    @else {
+        @content;
+    }
+    @if type-of($mright) == 'string' {
+        margin-right: $mright;
+    } 
+    @else if type-of($mright) == 'number' {
+        margin-right: $mright * 1px;
+    } 
+    @else {
+        @content;
+    }
+}
+
+@mixin margin-t-b($mtop: 0, $mbot: 0){
+    margin-top: $mtop * 1px;
+@if type-of($mtop) == 'string' {
+    margin-top: $mtop;
+    } 
+    @else if type-of($mtop) == 'number' {
+        margin-top: $mtop * 1px;
+    } 
+    @else {
+        @content;
+    }
+    @if type-of($mbot) == 'string' {
+        margin-bottom: $mbot;
+    } 
+    @else if type-of($mbot) == 'number' {
+        margin-bottom: $mbot * 1px;
+    } 
+    @else {
+        @content;
+    }
+}
+@mixin dflex-a-j($align,$justify){
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin font($size){   
+    @if type-of($size) == 'string' {
+    font-size: $size;
+    line-height: size + 6px;
+    } 
+    @else if type-of($size) == 'number' {
+    font-size: $size * 1px;
+    line-height: ($size + 6) * 1px;
+    } 
+    @else {
+        @content;
+    }
+}
